@@ -3,16 +3,41 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { ListComponent } from './components/list/list.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {LoginService} from './services/login.service';
+import { RegistrarComponent } from './components/registrar/registrar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
+//import {MatMomentDateModule} from '@angular/material-moment-adapter';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent,
+    LoginFormComponent,
+    ListComponent,
+    InicioComponent,
+    RegistrarComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule, 
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
