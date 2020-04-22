@@ -8,15 +8,16 @@ import { LoginService } from '../../services/login.service';
 })
 export class RegistrarComponent implements OnInit {
   user = {}
-  constructor(private authService: LoginService, private router: Router) { }
+  constructor(private reg: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
   onRegistrar(form){
     console.log('registradondo',form.value);
-    this.authService.registrar(form.value).subscribe(res => {
+    this.reg.registrar(form.value).subscribe(res => {
       console.log('registrado',res);
-      this.router.navigateByUrl('/login');
+      alert('Revise su correo para confirmar la cuenta.');
+      this.router.navigateByUrl('/');
     },err=>{
       console.error();
       alert('Error al registrarse.');

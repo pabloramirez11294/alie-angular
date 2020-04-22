@@ -30,7 +30,7 @@ export class LoginService {
           if (res) {
             // guardar token
             console.log(res);
-            this.saveToken(res.dataU.accessToken, res.dataU.expiresIn);
+            this.guardarTok(res.dataU.accessToken, res.dataU.expiresIn);
           }
         })
       );
@@ -41,14 +41,14 @@ export class LoginService {
       (res: JwtResponseI) => {
         if (res) {
           // guardar token
-          console.log("hasta aqui ",res);
-          this.saveToken(res.dataU.accessToken, res.dataU.expiresIn);
+          //console.log("hasta aqui ",res);
+          //this.guardarTok(res.dataU.accessToken, res.dataU.expiresIn);
         }
       })
     );
 }
 
-  private saveToken(token: string, expiresIn: string): void {
+  private guardarTok(token: string, expiresIn: string): void {
     localStorage.setItem("ACCESS_TOKEN", token);
     localStorage.setItem("EXPIRES_IN", expiresIn);
     this.token = token;
