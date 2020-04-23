@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
 //import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {GuardiaGuard} from './guardia.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,8 @@ import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
     MatNativeDateModule
   ],
   providers: [
-    LoginService
+    LoginService,
+    GuardiaGuard
   ],
   bootstrap: [AppComponent]
 })

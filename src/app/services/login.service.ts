@@ -7,26 +7,28 @@ import { UserI } from '../models/user';
 import { JwtResponseI } from '../models/jwt-response';
 import { tap } from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
+import {Router} from '@angular/router';
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class LoginService {
-  API_URI = 'http://localhost:3000';
+  API_URI = "http://localhost:3000";
   private token: string;
   authSubject = new BehaviorSubject(false);
 
-  constructor(private http:HttpClient) { }
-  
-  getCliente(){
+  constructor(private http: HttpClient,private router:Router) {}
+
+  getCliente() {
     return this.http.get(`${this.API_URI}/login`);
   }
-  setCliente(cliente:Cliente){
-    return this.http.post(`${this.API_URI}/login`,cliente);
+  setCliente(cliente: Cliente) {
+    return this.http.post(`${this.API_URI}/login`, cliente);
   }
   login(user: UserI): Observable<JwtResponseI> {
-      return this.http.post<JwtResponseI>(`${this.API_URI}/register/login`,
-    user).pipe(tap(
-        (res: JwtResponseI) => {
+    return this.http
+      .post<JwtResponseI>(`${this.API_URI}/register/login`, user)
+      .pipe(
+        tap((res: JwtResponseI) => {
           if (res) {
             // guardar token
             console.log(res);
@@ -36,22 +38,32 @@ export class LoginService {
       );
   }
   registrar(user: UserI): Observable<JwtResponseI> {
-    return this.http.post<JwtResponseI>(`${this.API_URI}/register/crear`,
-  user).pipe(tap(
-      (res: JwtResponseI) => {
-        if (res) {
-          // guardar token
-          //console.log("hasta aqui ",res);
-          //this.guardarTok(res.dataU.accessToken, res.dataU.expiresIn);
-        }
-      })
-    );
-}
+    return this.http
+      .post<JwtResponseI>(`${this.API_URI}/register/crear`, user)
+      .pipe(
+        tap((res: JwtResponseI) => {
+          if (res) {
+            // guardar token
+            //console.log("hasta aqui ",res);
+            //this.guardarTok(res.dataU.accessToken, res.dataU.expiresIn);
+          }
+        })
+      );
+  }
+  estaLog():Boolean{
+    return !!localStorage.getItem('TOKEN');
+  }
 
   private guardarTok(token: string, expiresIn: string): void {
-    localStorage.setItem("ACCESS_TOKEN", token);
     localStorage.setItem("EXPIRES_IN", expiresIn);
+    localStorage.setItem("TOKEN", token);
+
     this.token = token;
+  }
+
+  logOut(){
+    localStorage.removeItem('TOKEN');
+    this.router.navigate(['/login']);
   }
 
 }
