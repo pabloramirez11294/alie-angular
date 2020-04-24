@@ -9,7 +9,7 @@
         <p><input type="text" name="apellidos" placeholder="Apellidos" [(ngModel)]="user.apellidos" ></p>
         <p><input type="email" name="correo" placeholder="Email" [(ngModel)]="user.correo" required ></p>
         <p><input type="password" name="clave" placeholder="Password" [(ngModel)]="user.clave" required></p>
-        <p><input type="text" name="fechaNac" [matDatepicker]="myDatepicker" style="display:inline;width: 310px;" placeholder="Fecha nacimiento" [(ngModel)]="user.fechaNac">
+        <p><input type="text" name="fecha_nac" [matDatepicker]="myDatepicker" style="display:inline;width: 310px;" placeholder="Fecha nacimiento" [(ngModel)]="user.fecha_nac">
           <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
           <mat-datepicker #myDatepicker></mat-datepicker>
         </p>
@@ -20,10 +20,11 @@
           </select>
         </p>
         <p><input type="number" name="telefono" placeholder="Telefono" [(ngModel)]="user.telefono" required ></p>
+        <p><input type="text" name="direccion" placeholder="Direccion" [(ngModel)]="user.direccion"></p>
         <p><input type="submit" value="Registrar"></p>
 
       </form>
     </div>
-  
-  
+      
   </div>
+  
