@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {InicioComponent}  from './components/inicio/inicio.component';
 import {LoginFormComponent} from './components/login-form/login-form.component';
 import {RegistrarComponent} from './components/registrar/registrar.component';
+import {CrudProductoComponent} from './components/crud-producto/crud-producto.component';
 import {GuardiaGuard} from './guardia.guard';
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   { 
     path: 'registrar', 
     component: RegistrarComponent 
+  },
+  { 
+    path: 'crudProductos', 
+    component: CrudProductoComponent 
   }
 
 ];

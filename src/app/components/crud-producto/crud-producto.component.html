@@ -1,0 +1,45 @@
+<div class="col-md-5 offset-md-3">
+    <div class="card">
+      <div class="card-body">
+        <form action="">
+          <div class="form-group">
+            <input type="text" name="nombre"  placeholder="Nombre" [(ngModel)]="producto.nombre" class="form-control" autofocus>
+          </div>
+          <div class="form-group">
+            <textarea name="descripcion"  rows="2" placeholder="Description" [(ngModel)]="producto.descripcion" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="txt" name="Imagen"  placeholder="Image" [(ngModel)]="producto.imagen" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="number" name="precion"  placeholder="Precio" [(ngModel)]="producto.precio" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="number" name="cantidad"  placeholder="Cantidad" [(ngModel)]="producto.cantidad" class="form-control">
+          </div>
+          <button class="btn btn-success btn-block" (click)='guardarProducto()'>
+            Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="card-body">
+        <form action="">
+            <div class="form-group">
+                <input type="text" name="categoria" placeholder="Categoria" [(ngModel)]="categoria.nombre"
+                    class="form-control">
+            </div>
+            <button class="btn btn-success btn-block" (click)='guardarCategoria()'>
+                Ingresar
+            </button>
+        </form>
+    </div>
+
+
+  </div>
+
+<div class="col-md-4">
+    
+</div>
+
