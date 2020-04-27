@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../models/producto';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CrudProductosService } from "../../services/crud-productos.service";
 @Component({
   selector: 'app-crud-producto',
   templateUrl: './crud-producto.component.html',
@@ -13,25 +14,52 @@ export class CrudProductoComponent implements OnInit {
     imagen: '',
     descripcion:'',
     precio:null,
-    fecha_publicacion:new Date().toDateString(),
+    fecha_publicacion:'',
     cantidad:null,
     color:'',
-    estado:1
+    estado:1,
+    categoria:'',
+    id_usuario:''
   }
   categoria={};
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute,private productoService:CrudProductosService) { }
 
   ngOnInit() {
   }
 
   guardarProducto(){
+    if(this.producto.nombre=='' || this.producto.imagen=='' || this.producto.precio==null 
+        || this.producto.cantidad==0 || this.producto.color==''){
+      alert('Faltan campos.')
+      return;
+    }
+    this.producto.fecha_publicacion=new Date().toDateString();
     this.producto.fecha_publicacion=this.convertirFecha(this.producto.fecha_publicacion);
+    this.producto.id_usuario=localStorage.getItem('TOKEN');
     console.log(this.producto);
+    this.productoService.setProducto(this.producto).subscribe(
+      res => {
+        let a:any=res;
+        alert(a.message);
+        console.log(res);
+      },
+      err => {
+        alert(err.message);
+        console.error(err);
+      }
+    );
   }
 
-  guardarCategoria(){
-    console.log(this.categoria);
+  clear(){
+    this.producto.nombre='';
+    this.producto.imagen='';
+    this.producto.descripcion='';
+    this.producto.precio=null;
+    this.producto.cantidad=null;
+    this.producto.color='';
+    this.producto.categoria='';
   }
+
 
   convertirFecha(fecha: any):string {
     let separador = fecha.split(" ");

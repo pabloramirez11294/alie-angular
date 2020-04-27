@@ -26,7 +26,8 @@ const routes: Routes = [
   },
   { 
     path: 'crudProductos', 
-    component: CrudProductoComponent 
+    component: CrudProductoComponent, 
+    canActivate:[GuardiaGuard]
   }
 
 ];

@@ -10,6 +10,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 //servicios
 import {LoginService} from './services/login.service';
+import { CrudProductosService } from "./services/crud-productos.service";
 
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -42,6 +43,7 @@ import { CrudProductoComponent } from './components/crud-producto/crud-producto.
   ],
   providers: [
     LoginService,
+    CrudProductosService,
     GuardiaGuard
   ],
   bootstrap: [AppComponent]

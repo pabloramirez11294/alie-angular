@@ -6,5 +6,7 @@ export interface Producto {
     fecha_publicacion:string,
     cantidad:number,
     color:string,
-    estado:number
+    estado:number,
+    categoria:string,
+    id_usuario:string
   }

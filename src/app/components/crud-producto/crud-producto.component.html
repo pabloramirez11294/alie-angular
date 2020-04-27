@@ -9,37 +9,28 @@
             <textarea name="descripcion"  rows="2" placeholder="Description" [(ngModel)]="producto.descripcion" class="form-control"></textarea>
           </div>
           <div class="form-group">
-            <input type="txt" name="Imagen"  placeholder="Image" [(ngModel)]="producto.imagen" class="form-control">
+            <input type="text" name="imagen"  placeholder="Imagen" [(ngModel)]="producto.imagen" class="form-control">
           </div>
           <div class="form-group">
-            <input type="number" name="precion"  placeholder="Precio" [(ngModel)]="producto.precio" class="form-control">
+            <input type="number" name="precio"  placeholder="Precio" [(ngModel)]="producto.precio" class="form-control">
           </div>
           <div class="form-group">
             <input type="number" name="cantidad"  placeholder="Cantidad" [(ngModel)]="producto.cantidad" class="form-control">
           </div>
+          <div class="form-group">
+            <input type="text" name="color"  placeholder="Color" [(ngModel)]="producto.color" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="categoria"  placeholder="Categoria" [(ngModel)]="producto.categoria" class="form-control">
+          </div>
           <button class="btn btn-success btn-block" (click)='guardarProducto()'>
             Guardar
           </button>
+          <button class="btn btn-success btn-block" (click)="clear()">Limpiar</button>
         </form>
       </div>
     </div>
-
-    <div class="card-body">
-        <form action="">
-            <div class="form-group">
-                <input type="text" name="categoria" placeholder="Categoria" [(ngModel)]="categoria.nombre"
-                    class="form-control">
-            </div>
-            <button class="btn btn-success btn-block" (click)='guardarCategoria()'>
-                Ingresar
-            </button>
-        </form>
-    </div>
-
-
   </div>
 
-<div class="col-md-4">
-    
-</div>
+
 
