@@ -8,7 +8,6 @@ import { CrudProductosService } from "../../services/crud-productos.service";
   styleUrls: ['./crud-producto.component.css']
 })
 export class CrudProductoComponent implements OnInit {
-
   producto:Producto={
     nombre: '',
     imagen: '',
@@ -24,7 +23,7 @@ export class CrudProductoComponent implements OnInit {
   categoria={};
   constructor(private router: Router, private activatedRoute: ActivatedRoute,private productoService:CrudProductosService) { }
 
-  ngOnInit() {
+  ngOnInit() {    
   }
 
   guardarProducto(){

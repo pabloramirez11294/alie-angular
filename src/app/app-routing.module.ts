@@ -4,6 +4,8 @@ import {InicioComponent}  from './components/inicio/inicio.component';
 import {LoginFormComponent} from './components/login-form/login-form.component';
 import {RegistrarComponent} from './components/registrar/registrar.component';
 import {CrudProductoComponent} from './components/crud-producto/crud-producto.component';
+import {CatalogoComponent} from "./components/catalogo/catalogo.component";
+import {ProductoIndividualComponent} from "./components/producto-individual/producto-individual.component";
 import {GuardiaGuard} from './guardia.guard';
 const routes: Routes = [
   {
@@ -27,6 +29,17 @@ const routes: Routes = [
   { 
     path: 'crudProductos', 
     component: CrudProductoComponent, 
+    canActivate:[GuardiaGuard]
+  },
+  { 
+    path: 'catalogo', 
+    component: CatalogoComponent, 
+    canActivate:[GuardiaGuard]
+  }
+  ,
+  { 
+    path: 'productoIndividual', 
+    component: ProductoIndividualComponent, 
     canActivate:[GuardiaGuard]
   }
 

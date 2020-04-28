@@ -12,7 +12,12 @@ export class RegistrarComponent implements OnInit {
 
   ngOnInit() {}
   onRegistrar(form) {
-    console.log("ddddddd ", form.value.fecha_nac);
+    if(form.value.nombre==undefined || form.value.clave==undefined || form.value.correo.toS==undefined
+      || form.value.fecha_nac==undefined){
+      alert('Faltan campos.')
+      return;
+    }
+    console.log("ddddddd ", undefined);
     let fecha: any = form.value.fecha_nac.toString();
     form.value.fecha_nac = this.convertirFecha(fecha);
 

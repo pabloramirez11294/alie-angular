@@ -18,12 +18,7 @@ export class LoginService {
 
   constructor(private http: HttpClient,private router:Router) {}
 
-  getCliente() {
-    return this.http.get(`${this.API_URI}/login`);
-  }
-  setCliente(cliente: Cliente) {
-    return this.http.post(`${this.API_URI}/login`, cliente);
-  }
+
   login(user: UserI): Observable<JwtResponseI> {
     return this.http
       .post<JwtResponseI>(`${this.API_URI}/register/login`, user)
@@ -65,5 +60,6 @@ export class LoginService {
     localStorage.removeItem('TOKEN');
     this.router.navigate(['/login']);
   }
+
 
 }

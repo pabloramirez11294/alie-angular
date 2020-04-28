@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Producto } from "../models/producto";
-import {Router} from '@angular/router';
-import { Observable } from 'rxjs';
+import { retry } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,14 +10,17 @@ export class CrudProductosService {
 
   constructor(private http: HttpClient) { }
 
-  getProductos() {
-    return this.http.get(`${this.API_URI}/productos/listar`);
+  getProductos(id:string) {
+    return this.http.get(`${this.API_URI}/productos/listar/${id}`);
   }
   setProducto(producto: Producto) {
     return this.http.post(`${this.API_URI}/productos/crear`, producto);
   }
   deleteProducto(codigo:number){
     return this.http.put(`${this.API_URI}/productos/eliminar`, {cod:codigo});
+  }
+  buscar(nombre:string){
+    return this.http.get(`${this.API_URI}/productos/buscar/${nombre}`);
   }
 
 

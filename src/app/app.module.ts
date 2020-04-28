@@ -21,6 +21,8 @@ import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
 //para autenticar que un usuario puede ver ciertas paginas
 import {GuardiaGuard} from './guardia.guard';
 import { CrudProductoComponent } from './components/crud-producto/crud-producto.component';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
+import { ProductoIndividualComponent } from './components/producto-individual/producto-individual.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,9 @@ import { CrudProductoComponent } from './components/crud-producto/crud-producto.
     LoginFormComponent,
     InicioComponent,
     RegistrarComponent,
-    CrudProductoComponent
-    
+    CrudProductoComponent,
+    CatalogoComponent,
+    ProductoIndividualComponent    
   ],
   imports: [
     BrowserModule,
