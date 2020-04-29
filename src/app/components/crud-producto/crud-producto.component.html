@@ -1,4 +1,4 @@
-<div class="col-md-5 offset-md-3">
+<div class="col-md-7 offset-md-3">
     <div class="card">
       <div class="card-body">
         <form action="">
@@ -7,12 +7,9 @@
           </div>
           <div class="form-group">
             <textarea name="descripcion"  rows="2" placeholder="Description" [(ngModel)]="producto.descripcion" class="form-control"></textarea>
-          </div>
+          </div>       
           <div class="form-group">
-            <input type="text" name="imagen"  placeholder="Imagen" [(ngModel)]="producto.imagen" class="form-control">
-          </div>
-          <div class="form-group">
-            <input type="number" name="precio"  placeholder="Precio" [(ngModel)]="producto.precio" class="form-control">
+            <input type="number" name="precio"  placeholder="Precio" [(ngModel)]="producto.precio" class="form-control" required>
           </div>
           <div class="form-group">
             <input type="number" name="cantidad"  placeholder="Cantidad" [(ngModel)]="producto.cantidad" class="form-control">
@@ -23,7 +20,10 @@
           <div class="form-group">
             <input type="text" name="categoria"  placeholder="Categoria" [(ngModel)]="producto.categoria" class="form-control">
           </div>
-          <button class="btn btn-success btn-block" (click)='guardarProducto()'>
+          <div class="form-group d-flex justify-content-between align-items-center">
+            <input type="file" name="imagenes"  (change)="eventoI($event)" placeholder="Imagenes" [(ngModel)]="producto.imagenes" class="form-control" required>
+          </div>
+          <button class="btn btn-success btn-block" (click)='cargarProducto()'>
             Guardar
           </button>
           <button class="btn btn-success btn-block" (click)="clear()">Limpiar</button>

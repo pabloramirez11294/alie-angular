@@ -2,12 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../models/producto';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CrudProductosService } from "../../services/crud-productos.service";
+
+interface IEvento extends Event {
+  target: HTMLInputElement & EventTarget;
+}
+
 @Component({
   selector: 'app-crud-producto',
   templateUrl: './crud-producto.component.html',
   styleUrls: ['./crud-producto.component.css']
 })
 export class CrudProductoComponent implements OnInit {
+  fileI: File;
   producto:Producto={
     nombre: '',
     imagen: '',
@@ -26,7 +32,8 @@ export class CrudProductoComponent implements OnInit {
   ngOnInit() {    
   }
 
-  guardarProducto(){
+  guardarProducto(ruta:string){
+    this.producto.imagen=ruta;
     if(this.producto.nombre=='' || this.producto.imagen=='' || this.producto.precio==null 
         || this.producto.cantidad==0 || this.producto.color==''){
       alert('Faltan campos.')
@@ -48,6 +55,34 @@ export class CrudProductoComponent implements OnInit {
       }
     );
   }
+  async cargarProducto(){
+    if(this.fileI==undefined){
+      alert('Le falta agregar imagen.');
+      return;
+    }
+
+      let ruta:string;
+      this.productoService.setProductoImagen(this.fileI).subscribe(
+      res => {        
+        console.log(res);
+        const {imagePath}:any= res;
+        ruta=imagePath;
+        console.log(ruta);
+        this.guardarProducto(ruta);
+      },
+      err =>{ 
+        ruta='error';
+        console.log(err);        
+      });
+  }
+
+  eventoI(event:IEvento){
+    if (event.target.files && event.target.files[0]) {
+      this.fileI = <File>event.target.files[0];
+      console.log(this.fileI);
+    }
+  }
+
 
   clear(){
     this.producto.nombre='';

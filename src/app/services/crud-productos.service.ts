@@ -22,6 +22,10 @@ export class CrudProductosService {
   buscar(nombre:string){
     return this.http.get(`${this.API_URI}/productos/buscar/${nombre}`);
   }
-
+  setProductoImagen(imagen:File) {
+    const data = new FormData();
+    data.append('nameImage', imagen);
+    return this.http.post(`${this.API_URI}/productos/cargarImagen`, data);
+  }
 
 }
