@@ -17,7 +17,7 @@
           <input type="file" name="archivo" (change)="eventoCM($event)" placeholder="Archivo" class="form-control" required>
         </div>
         <button class="btn" style="background-color: orange;" (click)="cargaMasiva()">
-          <i class="fas fa-save"></i>
+          <i class="fas fa-save">Cargar</i>
         </button>
       </form>
     </div>
@@ -58,11 +58,11 @@
               [(ngModel)]="producto.imagenes" class="form-control" required>
           </div>
           <button class="btn" style="background-color: orange;" (click)='cargarProducto()'>
-            <i class="fas fa-save"></i>
+            <i class="fas fa-save">Guardar</i>
           </button>
           &nbsp;&nbsp;&nbsp;
           <button class="btn" (click)="clear()" style="background-color: orange;">
-            <i class="fas fa-broom"></i>
+            <i class="fas fa-broom">Limpiar</i>
           </button>
         </form>
       </div>

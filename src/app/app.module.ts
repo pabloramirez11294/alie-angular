@@ -23,6 +23,7 @@ import {GuardiaGuard} from './guardia.guard';
 import { CrudProductoComponent } from './components/crud-producto/crud-producto.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { ProductoIndividualComponent } from './components/producto-individual/producto-individual.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ProductoIndividualComponent } from './components/producto-individual/pr
     RegistrarComponent,
     CrudProductoComponent,
     CatalogoComponent,
-    ProductoIndividualComponent    
+    ProductoIndividualComponent,
+    CarritoComponent    
   ],
   imports: [
     BrowserModule,

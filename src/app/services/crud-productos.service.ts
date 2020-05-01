@@ -13,6 +13,9 @@ export class CrudProductosService {
   getProductos(id:string) {
     return this.http.get(`${this.API_URI}/productos/listar/${id}`);
   }
+  getProducto(codigo:string) {
+    return this.http.get(`${this.API_URI}/productos/getProducto/${codigo}`);
+  }
   setProducto(producto: Producto) {
     return this.http.post(`${this.API_URI}/productos/crear`, producto);
   }

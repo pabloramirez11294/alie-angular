@@ -12,7 +12,7 @@
 
   <div class="col-md-3" *ngFor="let prod of datos">
     <div class="card-header d-flex justify-content-between align-items-center">
-      <a routerLink="/productoIndividual">{{prod[1]}}</a>
+      <a routerLink="/productoIndividual/{{prod[0]}}">{{prod[1]}}</a>
     </div>
     <div>
       <p>
@@ -29,6 +29,3 @@
     <hr><hr>
     <br>
   </div>
-<!-- <a class="a-link-normal a-text-normal" href="/-/es/moldeada-plegable-mitad-Cosco-Pl%C3%A1stico/dp/B00DOZTM3O/ref=sr_1_2?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&amp;dchild=1&amp;keywords=Table&amp;qid=1588053164&amp;sr=8-2">
- <span class="a-size-base-plus a-color-base a-text-normal" dir="auto">Mesa moldeada plegable a la mitad de Cosco, Plástico, Negro</span>
-</a> -->

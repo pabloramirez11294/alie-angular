@@ -6,6 +6,7 @@ import {RegistrarComponent} from './components/registrar/registrar.component';
 import {CrudProductoComponent} from './components/crud-producto/crud-producto.component';
 import {CatalogoComponent} from "./components/catalogo/catalogo.component";
 import {ProductoIndividualComponent} from "./components/producto-individual/producto-individual.component";
+import {CarritoComponent} from "./components/carrito/carrito.component";
 import {GuardiaGuard} from './guardia.guard';
 const routes: Routes = [
   {
@@ -35,13 +36,17 @@ const routes: Routes = [
     path: 'catalogo', 
     component: CatalogoComponent, 
     canActivate:[GuardiaGuard]
-  }
-  ,
+  },
   { 
-    path: 'productoIndividual', 
-    component: ProductoIndividualComponent, 
+    path: 'productoIndividual/:codigo', 
+    component: ProductoIndividualComponent
+  },
+  { 
+    path: 'carrito', 
+    component: CarritoComponent, 
     canActivate:[GuardiaGuard]
   }
+  
 
 ];
 
