@@ -1,4 +1,4 @@
-export interface JwtResponseI {
+export interface JwtI {
     dataU: {
       correo: string,
       accessToken: string,

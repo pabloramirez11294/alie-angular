@@ -4,7 +4,7 @@ import {Cliente} from '../models/Cliente'
 
 
 import { UserI } from '../models/user';
-import { JwtResponseI } from '../models/jwt-response';
+import { JwtI } from '../models/jwtInterface';
 import { tap } from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
 import {Router} from '@angular/router';
@@ -19,11 +19,11 @@ export class LoginService {
   constructor(private http: HttpClient,private router:Router) {}
 
 
-  login(user: UserI): Observable<JwtResponseI> {
+  login(user: UserI): Observable<JwtI> {
     return this.http
-      .post<JwtResponseI>(`${this.API_URI}/register/login`, user)
+      .post<JwtI>(`${this.API_URI}/register/login`, user)
       .pipe(
-        tap((res: JwtResponseI) => {
+        tap((res: JwtI) => {
           if (res) {
             // guardar token
             console.log(res);
@@ -32,11 +32,11 @@ export class LoginService {
         })
       );
   }
-  registrar(user: UserI): Observable<JwtResponseI> {
+  registrar(user: UserI): Observable<JwtI> {
     return this.http
-      .post<JwtResponseI>(`${this.API_URI}/register/crear`, user)
+      .post<JwtI>(`${this.API_URI}/register/crear`, user)
       .pipe(
-        tap((res: JwtResponseI) => {
+        tap((res: JwtI) => {
           if (res) {
             // guardar token
             //console.log("hasta aqui ",res);

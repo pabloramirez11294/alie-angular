@@ -3,6 +3,7 @@ import { Producto } from '../../models/producto';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CrudProductosService } from "../../services/crud-productos.service";
 
+
 interface IEvento extends Event {
   target: HTMLInputElement & EventTarget;
 }
@@ -13,7 +14,10 @@ interface IEvento extends Event {
   styleUrls: ['./crud-producto.component.css']
 })
 export class CrudProductoComponent implements OnInit {
+  carga:boolean=false;
+  texto:string='';
   fileI: File;
+  reader:FileReader;
   producto:Producto={
     nombre: '',
     imagen: '',
@@ -145,5 +149,50 @@ export class CrudProductoComponent implements OnInit {
     let fechaArreglada = dia + "-" + numMes + "-" + year;
     return fechaArreglada;
   }
+
+  btnProdIndiv(){
+    this.carga=false;
+  }
+  btnCarga(){
+    this.carga=true;
+  }
+  cargaMasiva(){
+    console.log(this.reader.result);
+    const texto:string= this.reader.result.toString();
+    const id:string=localStorage.getItem('TOKEN');
+    texto.trim();
+    const data={
+      texto:texto,
+      id_usuario:id
+    }
+    console.log(data);
+    this.productoService.setCargaMasiva(data).subscribe(
+      res => {
+        let a:any=res;
+        alert(a.message);
+        console.log(res);
+      },
+      err => {
+        alert(err.message);
+        console.error(err);
+      }
+    );
+  }
+  
+  eventoCM(event:IEvento){
+    
+    if (event.target.files && event.target.files[0]) {     
+     this.fileI = <File>event.target.files[0];
+    this.reader = new FileReader();
+
+    this.reader.readAsText(this.fileI);
+
+    this.reader.onload = function() {
+      //console.log(this.reader.result);
+      //localStorage.setItem('texto',this.reader.result.toString());
+    };
+      
+    }
+  } 
 
 }

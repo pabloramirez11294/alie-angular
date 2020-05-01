@@ -27,5 +27,8 @@ export class CrudProductosService {
     data.append('nameImage', imagen);
     return this.http.post(`${this.API_URI}/productos/cargarImagen`, data);
   }
+  setCargaMasiva(data:any){
+    return this.http.post(`${this.API_URI}/productos/cargaMasiva`, data);
+  }
 
 }

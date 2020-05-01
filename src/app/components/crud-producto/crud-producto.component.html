@@ -1,33 +1,71 @@
 <div class="col-md-7 offset-md-3">
+  <button class="btn btn-success" (click)="btnCarga()">
+    Carga masiva
+  </button>
+  &nbsp;&nbsp;&nbsp;
+  <button (click)="btnProdIndiv()" class="btn btn-success" style="width: 10;">
+    Agregar Individual
+  </button>
+</div>
+
+<br>
+<div class="col-md-7 offset-md-3" *ngIf='carga; else crud;'>
+  <div class="card">
+    <div class="card-body">
+      <form action="">
+        <div class="form-group d-flex justify-content-between align-items-center">
+          <input type="file" name="archivo" (change)="eventoCM($event)" placeholder="Archivo" class="form-control" required>
+        </div>
+        <button class="btn" style="background-color: orange;" (click)="cargaMasiva()">
+          <i class="fas fa-save"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<ng-template #crud>
+
+  <div class="col-md-7 offset-md-3">
     <div class="card">
       <div class="card-body">
         <form action="">
           <div class="form-group">
-            <input type="text" name="nombre"  placeholder="Nombre" [(ngModel)]="producto.nombre" class="form-control" autofocus>
+            <input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="producto.nombre" class="form-control"
+              autofocus>
           </div>
           <div class="form-group">
-            <textarea name="descripcion"  rows="2" placeholder="Description" [(ngModel)]="producto.descripcion" class="form-control"></textarea>
-          </div>       
-          <div class="form-group">
-            <input type="number" name="precio"  placeholder="Precio" [(ngModel)]="producto.precio" class="form-control" required>
+            <textarea name="descripcion" rows="2" placeholder="Description" [(ngModel)]="producto.descripcion"
+              class="form-control"></textarea>
           </div>
           <div class="form-group">
-            <input type="number" name="cantidad"  placeholder="Cantidad" [(ngModel)]="producto.cantidad" class="form-control">
+            <input type="number" name="precio" placeholder="Precio" [(ngModel)]="producto.precio" class="form-control"
+              required>
           </div>
           <div class="form-group">
-            <input type="text" name="color"  placeholder="Color" [(ngModel)]="producto.color" class="form-control">
+            <input type="number" name="cantidad" placeholder="Cantidad" [(ngModel)]="producto.cantidad"
+              class="form-control">
           </div>
           <div class="form-group">
-            <input type="text" name="categoria"  placeholder="Categoria" [(ngModel)]="producto.categoria" class="form-control">
+            <input type="text" name="color" placeholder="Color" [(ngModel)]="producto.color" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="categoria" placeholder="Categoria" [(ngModel)]="producto.categoria"
+              class="form-control">
           </div>
           <div class="form-group d-flex justify-content-between align-items-center">
-            <input type="file" name="imagenes"  (change)="eventoI($event)" placeholder="Imagenes" [(ngModel)]="producto.imagenes" class="form-control" required>
+            <input type="file" name="imagenes" (change)="eventoI($event)" placeholder="Imagenes"
+              [(ngModel)]="producto.imagenes" class="form-control" required>
           </div>
-          <button class="btn btn-success btn-block" (click)='cargarProducto()'>
-            Guardar
+          <button class="btn" style="background-color: orange;" (click)='cargarProducto()'>
+            <i class="fas fa-save"></i>
           </button>
-          <button class="btn btn-success btn-block" (click)="clear()">Limpiar</button>
+          &nbsp;&nbsp;&nbsp;
+          <button class="btn" (click)="clear()" style="background-color: orange;">
+            <i class="fas fa-broom"></i>
+          </button>
         </form>
       </div>
     </div>
   </div>
+</ng-template>
