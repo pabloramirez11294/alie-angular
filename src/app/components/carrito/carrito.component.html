@@ -1,1 +1,29 @@
-<p>carrito works!</p>
+
+ <div class="col-md-7 offset-md-2" >
+    <table class="table table-borderless table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let prod of datos">
+          <tr>
+            <th scope="row"> {{prod[0]}}</th>
+            <td> {{prod[1]}}</td>
+            <td> {{prod[2]}}</td>
+            <td> {{prod[3]}}</td>
+            <td> {{prod[4]}}</td>
+            <td> {{prod[5]}}</td>
+          </tr>
+         
+      </table>
+      <h2>TOTAL: {{total}}</h2>
+      <button class="btn" style="background-color: orange;" (click)=comprar()>
+        <i class="fas fa-shopping-bag">&nbsp; Comprar</i>
+      </button>
+</div>

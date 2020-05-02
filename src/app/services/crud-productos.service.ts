@@ -33,5 +33,13 @@ export class CrudProductosService {
   setCargaMasiva(data:any){
     return this.http.post(`${this.API_URI}/productos/cargaMasiva`, data);
   }
-
+  agregarCarrito(data: any) {
+    return this.http.post(`${this.API_URI}/productos/agregarCarrito`, data);
+  }
+  getCarrito(id:string) {
+    return this.http.get(`${this.API_URI}/productos/getCarrito/${id}`);
+  }
+  comprar(data:any){
+    return this.http.put(`${this.API_URI}/productos/comprar`, data);
+  }
 }

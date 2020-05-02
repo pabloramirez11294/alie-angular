@@ -12,6 +12,7 @@ export class ProductoIndividualComponent implements OnInit {
 
   constructor(private activateRoute:ActivatedRoute,private crudProductosService:CrudProductosService) { }
   prod:any=[];
+  cantidad:number;
   ngOnInit() {
     this.activateRoute.paramMap.subscribe(params  =>{
       const codigo = params.get('codigo');
@@ -28,5 +29,27 @@ export class ProductoIndividualComponent implements OnInit {
       console.log('codigo',codigo);
     });
   }
-
+  agregarCarrito(){
+    if(this.cantidad==undefined){
+      alert('Ingrese la cantidad.');
+      return;
+    }
+    const id=localStorage.getItem('TOKEN');
+    const cod = this.prod[0][0];
+    const data={
+      id_u:id,
+      codigo:cod,
+      cantidad:this.cantidad
+    }
+    console.log(data);
+    this.crudProductosService.agregarCarrito(data).subscribe(
+      res=>{          
+        console.log(res);
+      },
+      err=>{
+        console.log(err);
+        alert(err.message);
+      }
+    );
+  }
 }

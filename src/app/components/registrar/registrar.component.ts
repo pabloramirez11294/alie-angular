@@ -12,7 +12,7 @@ export class RegistrarComponent implements OnInit {
 
   ngOnInit() {}
   onRegistrar(form) {
-    if(form.value.nombre==undefined || form.value.clave==undefined || form.value.correo.toS==undefined
+    if(form.value.nombre==undefined || form.value.clave==undefined || form.value.correo==undefined
       || form.value.fecha_nac==undefined){
       alert('Faltan campos.')
       return;
