@@ -19,11 +19,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
 //import {MatMomentDateModule} from '@angular/material-moment-adapter';
 //para autenticar que un usuario puede ver ciertas paginas
-import {GuardiaGuard} from './guardia.guard';
+import {UsuarioGuard} from './guards/usuario.guard';
+import {AdministradorGuard  } from "./guards/administrador.guard";
+
 import { CrudProductoComponent } from './components/crud-producto/crud-producto.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { ProductoIndividualComponent } from './components/producto-individual/producto-individual.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { DenegadoComponent } from './components/denegado/denegado.component';
+import { AdminUsersComponent } from './components/admin-users/admin-users.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,9 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     CrudProductoComponent,
     CatalogoComponent,
     ProductoIndividualComponent,
-    CarritoComponent    
+    CarritoComponent,
+    DenegadoComponent,
+    AdminUsersComponent    
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,8 @@ import { CarritoComponent } from './components/carrito/carrito.component';
   providers: [
     LoginService,
     CrudProductosService,
-    GuardiaGuard
+    UsuarioGuard,
+    AdministradorGuard
   ],
   bootstrap: [AppComponent]
 })

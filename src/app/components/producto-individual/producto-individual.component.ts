@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CrudProductosService } from "../../services/crud-productos.service";
-import { CrudProductoComponent } from '../crud-producto/crud-producto.component';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-producto-individual',
@@ -10,7 +10,9 @@ import { CrudProductoComponent } from '../crud-producto/crud-producto.component'
 })
 export class ProductoIndividualComponent implements OnInit {
 
-  constructor(private activateRoute:ActivatedRoute,private crudProductosService:CrudProductosService) { }
+  constructor(private activateRoute:ActivatedRoute,
+    private crudProductosService:CrudProductosService,
+    private loginService:LoginService) { }
   prod:any=[];
   cantidad:number;
   ngOnInit() {
@@ -45,6 +47,7 @@ export class ProductoIndividualComponent implements OnInit {
     this.crudProductosService.agregarCarrito(data).subscribe(
       res=>{          
         console.log(res);
+        alert('Producto agregado.');
       },
       err=>{
         console.log(err);

@@ -2,6 +2,7 @@ export interface JwtI {
     dataU: {
       correo: string,
       accessToken: string,
-      expiresIn: string
+      expiresIn: string,
+      clase:string
     }
   }

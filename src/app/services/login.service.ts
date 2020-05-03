@@ -27,7 +27,7 @@ export class LoginService {
           if (res) {
             // guardar token
             console.log(res);
-            this.guardarTok(res.dataU.accessToken, res.dataU.expiresIn);
+            this.guardarTok(res.dataU.accessToken, res.dataU.clase);
           }
         })
       );
@@ -48,16 +48,24 @@ export class LoginService {
   estaLog():Boolean{
     return !!localStorage.getItem('TOKEN');
   }
+  claseUser():string{
+    if(localStorage.getItem('CLASE')==undefined){
+      return null;
+    }
+    return localStorage.getItem('CLASE');
+  }
 
-  private guardarTok(token: string, expiresIn: string): void {
-    localStorage.setItem("EXPIRES_IN", expiresIn);
+  private guardarTok(token: string,clase:string): void {
+    //localStorage.setItem("EXPIRES_IN", expiresIn);
     localStorage.setItem("TOKEN", token);
+    localStorage.setItem('CLASE',clase);
 
     this.token = token;
   }
 
   logOut(){
     localStorage.removeItem('TOKEN');
+    localStorage.removeItem('CLASE');
     this.router.navigate(['/login']);
   }
 

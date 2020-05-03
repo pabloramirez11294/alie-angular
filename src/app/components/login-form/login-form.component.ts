@@ -16,7 +16,10 @@ export class LoginFormComponent implements OnInit {
   onLogin(form):void{
     console.log('logeado',form.value);
     this.authService.login(form.value).subscribe(res => {
-      
+      if(this.authService.claseUser()=='admin'){
+        this.router.navigateByUrl('/adminUsers');
+        return;
+      }
       this.router.navigateByUrl('/inicio');
     },err=>{
       alert(err.error.message);

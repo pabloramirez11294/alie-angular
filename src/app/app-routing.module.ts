@@ -7,12 +7,19 @@ import {CrudProductoComponent} from './components/crud-producto/crud-producto.co
 import {CatalogoComponent} from "./components/catalogo/catalogo.component";
 import {ProductoIndividualComponent} from "./components/producto-individual/producto-individual.component";
 import {CarritoComponent} from "./components/carrito/carrito.component";
-import {GuardiaGuard} from './guardia.guard';
+import {DenegadoComponent} from "./components/denegado/denegado.component";
+import { AdminUsersComponent } from "./components/admin-users/admin-users.component";
+import { UsuarioGuard } from "./guards/usuario.guard";
+import { AdministradorGuard} from "./guards/administrador.guard";
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/inicio',
     pathMatch: 'full'
+  },
+  { 
+    path: 'denegado', 
+    component: DenegadoComponent
   },
   {
     path:'inicio',
@@ -30,12 +37,12 @@ const routes: Routes = [
   { 
     path: 'crudProductos', 
     component: CrudProductoComponent, 
-    canActivate:[GuardiaGuard]
+    canActivate:[UsuarioGuard]
   },
   { 
     path: 'catalogo', 
     component: CatalogoComponent, 
-    canActivate:[GuardiaGuard]
+    canActivate:[UsuarioGuard]
   },
   { 
     path: 'productoIndividual/:codigo', 
@@ -44,8 +51,13 @@ const routes: Routes = [
   { 
     path: 'carrito', 
     component: CarritoComponent, 
-    canActivate:[GuardiaGuard]
-  }
+    canActivate:[UsuarioGuard]
+  },
+  { 
+    path: 'adminUsers', 
+    component: AdminUsersComponent,
+    canActivate:[AdministradorGuard]
+  }    
   
 
 ];

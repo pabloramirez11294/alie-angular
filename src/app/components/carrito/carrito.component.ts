@@ -10,6 +10,8 @@ import { promise } from 'protractor';
 export class CarritoComponent implements OnInit {
   datos:any=[];
   codigos:any=[];
+  subtotales:any=[];
+  cantidades:any=[];
   total:number=0;
   constructor(private productosService:CrudProductosService) { }
 
@@ -23,6 +25,8 @@ export class CarritoComponent implements OnInit {
     const data={
       id_comprador:id_comprador,
       codigos:this.codigos,
+      subtotales:this.subtotales,
+      cantidades:this.cantidades,
       total:this.total
     }
     this.productosService.comprar(data).subscribe(
@@ -30,6 +34,8 @@ export class CarritoComponent implements OnInit {
         const {message}:any=res;
         alert(message);
         console.log(res);
+        this.getCarrito();
+        this.total=undefined;
       },
       err=>{
         console.log(err);
@@ -49,6 +55,8 @@ export class CarritoComponent implements OnInit {
         for(let prod of this.datos){
           this.total += prod[5];
           this.codigos[i]=prod[0];
+          this.subtotales[i]=prod[5];
+          this.cantidades[i]=prod[4];
           i++;
         }
       },
