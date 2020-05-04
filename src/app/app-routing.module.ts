@@ -9,6 +9,7 @@ import {ProductoIndividualComponent} from "./components/producto-individual/prod
 import {CarritoComponent} from "./components/carrito/carrito.component";
 import {DenegadoComponent} from "./components/denegado/denegado.component";
 import { AdminUsersComponent } from "./components/admin-users/admin-users.component";
+import { UserAyudaComponent } from "./components/user-ayuda/user-ayuda.component";
 import { UsuarioGuard } from "./guards/usuario.guard";
 import { AdministradorGuard} from "./guards/administrador.guard";
 const routes: Routes = [
@@ -51,6 +52,11 @@ const routes: Routes = [
   { 
     path: 'carrito', 
     component: CarritoComponent, 
+    canActivate:[UsuarioGuard]
+  },
+  { 
+    path: 'userAyuda', 
+    component: UserAyudaComponent, 
     canActivate:[UsuarioGuard]
   },
   { 

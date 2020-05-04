@@ -69,5 +69,13 @@ export class LoginService {
     this.router.navigate(['/login']);
   }
 
+  listar(){
+    return this.http.get(`${this.API_URI}/register/listar`);
+  }
+  
+  adminActualizar(data:any){
+    return this.http.put(`${this.API_URI}/register/adminActualizar`,data);
+  }
+
 
 }

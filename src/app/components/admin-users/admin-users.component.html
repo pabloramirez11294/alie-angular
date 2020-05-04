@@ -1,1 +1,53 @@
-<p>admin-users works!</p>
+<div class="col-md-5 offset-md-0">
+    <table class="table table-borderless table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Clase</th>
+                <th scope="col">Estado</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let prod of datos">
+            <tr>
+                <th scope="row"> {{prod[0]}}</th>
+                <td> {{prod[1]}}</td>
+                <td> {{prod[4]}}</td>
+                <td> {{prod[11]}}</td>
+                <td> {{prod[14]}}</td>
+            </tr>
+
+    </table>
+</div>
+<div class="col-md-7 offset-md-0 card-header d-flex justify-content-between align-items-center">
+    <h5>Cambiar clase:</h5>&nbsp;&nbsp;
+    <input type="number" name="id_usuario" placeholder="#" required [(ngModel)]="info.id_usuario">
+    &nbsp;&nbsp;
+
+    <select class="custom-select" name="clase" [(ngModel)]="info.clase">
+        <option value="admin">Administrador</option>
+        <option value="ayuda">Ayuda</option>
+        <option value="cliente">Cliente</option>
+    </select>
+    &nbsp;&nbsp;
+    <button class="btn" style="background-color: greenyellow;" (click)=guardarClase()>
+        <i class="far fa-edit">&nbsp; Actualizar</i>
+    </button>
+</div>
+
+<div class="col-md-7 offset-md-0 card-header d-flex justify-content-between align-items-center">
+    <h5>Cambiar Estado:</h5>&nbsp;&nbsp;
+    <input type="number" name="id_usuario2" placeholder="#" required [(ngModel)]="info.id_usuario2">
+    &nbsp;&nbsp;
+
+    <select class="custom-select" name="estado" [(ngModel)]="info.estado">
+        <option value="0">Baja</option>
+        <option value="1">Alta</option>
+    </select>
+    &nbsp;&nbsp;
+    <button class="btn" style="background-color: greenyellow;" (click)=guardarEstado()>
+        <i class="far fa-edit">&nbsp; Actualizar</i>
+    </button>
+</div>
+
