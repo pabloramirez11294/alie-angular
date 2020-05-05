@@ -76,6 +76,17 @@ export class LoginService {
   adminActualizar(data:any){
     return this.http.put(`${this.API_URI}/register/adminActualizar`,data);
   }
+  adminReg(data:any){
+    return this.http.post(`${this.API_URI}/register/adminRegistro`,data);
+  }
 
-
+  getBitacora(){
+    return this.http.get(`${this.API_URI}/register/getBitacora/${localStorage.getItem('TOKEN')}`);
+  }
+  getUsuario(){
+    return this.http.get(`${this.API_URI}/register/getUsuario/${localStorage.getItem('TOKEN')}`);
+  }
+  actualizarUsuario(data:any){
+    return this.http.put(`${this.API_URI}/register/actualizarUsuario`,data);
+  }
 }

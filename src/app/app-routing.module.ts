@@ -10,6 +10,8 @@ import {CarritoComponent} from "./components/carrito/carrito.component";
 import {DenegadoComponent} from "./components/denegado/denegado.component";
 import { AdminUsersComponent } from "./components/admin-users/admin-users.component";
 import { UserAyudaComponent } from "./components/user-ayuda/user-ayuda.component";
+import { AdminRegComponent } from "./components/admin-reg/admin-reg.component";
+import { PerfilComponent } from "./components/perfil/perfil.component";
 import { UsuarioGuard } from "./guards/usuario.guard";
 import { AdministradorGuard} from "./guards/administrador.guard";
 const routes: Routes = [
@@ -60,10 +62,20 @@ const routes: Routes = [
     canActivate:[UsuarioGuard]
   },
   { 
+    path: 'perfil', 
+    component: PerfilComponent, 
+    canActivate:[UsuarioGuard]
+  },
+  { 
     path: 'adminUsers', 
     component: AdminUsersComponent,
     canActivate:[AdministradorGuard]
-  }    
+  },
+  { 
+    path: 'adminReg', 
+    component: AdminRegComponent,
+    canActivate:[AdministradorGuard]
+  }  
   
 
 ];

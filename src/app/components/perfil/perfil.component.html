@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="login">
+      <div class="login"></div>
+      
+      <h2 class="login-header">Datos</h2>
+    
+      <form #frmRegistrar="ngForm" class="login-container" (ngSubmit)="onRegistrar(frmRegistrar)" >
+        <p><input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="user.nombre" autofocus></p>
+        <p><input type="text" name="apellidos" placeholder="Apellidos" [(ngModel)]="user.apellidos" ></p>
+        <p><input type="email" name="correo" placeholder="Email" [(ngModel)]="user.correo" required ></p>
+        <p><input type="password" name="clave" placeholder="Password" [(ngModel)]="user.clave" required></p>
+        <p><input type="number" name="telefono" placeholder="Telefono" [(ngModel)]="user.telefono" required ></p>
+        <p><input type="submit" value="Actualizar"></p>
+
+      </form>
+    </div>
+      
+  </div>
+  

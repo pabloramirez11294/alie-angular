@@ -1,4 +1,4 @@
-<div class="col-md-5 offset-md-0">
+<div class="col-md-5 offset-md-0 d-flex justify-content-between align-items-center">
     <table class="table table-borderless table-dark">
         <thead>
             <tr>
@@ -19,12 +19,34 @@
             </tr>
 
     </table>
+    &nbsp;&nbsp;
+    <table class="table table-borderless table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Operador</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Operacion</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Fecha</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let prod of bitacora">
+            <tr>
+                <th scope="row"> {{prod[1]}}</th>
+                <td> {{prod[2]}}</td>
+                <td> {{prod[3]}}</td>
+                <td> {{prod[4]}}</td>
+                <td> {{prod[5]}}</td>
+            </tr>
+
+    </table>
 </div>
-<div class="col-md-7 offset-md-0 card-header d-flex justify-content-between align-items-center">
+<div class="col-md-9 offset-md-0 card-header d-flex justify-content-between align-items-center">
     <h5>Cambiar clase:</h5>&nbsp;&nbsp;
     <input type="number" name="id_usuario" placeholder="#" required [(ngModel)]="info.id_usuario">
     &nbsp;&nbsp;
-
+    <input type="text" name="descripcion" placeholder="Descripcion" required [(ngModel)]="info.descripcion">
+    &nbsp;&nbsp;
     <select class="custom-select" name="clase" [(ngModel)]="info.clase">
         <option value="admin">Administrador</option>
         <option value="ayuda">Ayuda</option>
@@ -36,13 +58,15 @@
     </button>
 </div>
 
-<div class="col-md-7 offset-md-0 card-header d-flex justify-content-between align-items-center">
+<div class="col-md-9 offset-md-0 card-header d-flex justify-content-between align-items-center">
     <h5>Cambiar Estado:</h5>&nbsp;&nbsp;
     <input type="number" name="id_usuario2" placeholder="#" required [(ngModel)]="info.id_usuario2">
     &nbsp;&nbsp;
-
+    <input type="text" name="descripcion2" placeholder="Descripcion" required [(ngModel)]="info.descripcion2">
+    &nbsp;&nbsp;
     <select class="custom-select" name="estado" [(ngModel)]="info.estado">
-        <option value="0">Baja</option>
+        <option value="-1">Baja</option>
+        <option value="0">Congelar</option>
         <option value="1">Alta</option>
     </select>
     &nbsp;&nbsp;

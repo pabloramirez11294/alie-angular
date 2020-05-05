@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="login">
+      <div class="login"></div>
+      
+      <h2 class="login-header">Registrar</h2>
+    
+      <form #frmRegistrar="ngForm" class="login-container" (ngSubmit)="onRegistrar(frmRegistrar)" >
+        <p><input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="user.nombre" autofocus></p>
+        <p><input type="email" name="correo" placeholder="Email" [(ngModel)]="user.correo" required ></p>
+        <p><input type="password" name="clave" placeholder="Password" [(ngModel)]="user.clave" required></p>
+       
+        <p>
+          <select class="custom-select" name="genero" [(ngModel)]="user.genero">
+            <option value="1">Masculino</option>
+            <option value="2">Femenino</option>
+          </select>
+        </p>
+        <p>
+            <select class="custom-select" name="clase" [(ngModel)]="user.clase">
+                <option value="admin">Administrador</option>
+                <option value="ayuda">Ayuda</option>
+                <option value="cliente">Cliente</option>
+            </select>
+        </p>
+        
+        <p><input type="submit" value="Registrar"></p>
+
+      </form>
+    </div>
+      
+  </div>

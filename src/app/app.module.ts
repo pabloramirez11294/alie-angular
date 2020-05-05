@@ -29,6 +29,8 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { DenegadoComponent } from './components/denegado/denegado.component';
 import { AdminUsersComponent } from './components/admin-users/admin-users.component';
 import { UserAyudaComponent } from './components/user-ayuda/user-ayuda.component';
+import { AdminRegComponent } from './components/admin-reg/admin-reg.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { UserAyudaComponent } from './components/user-ayuda/user-ayuda.component
     CarritoComponent,
     DenegadoComponent,
     AdminUsersComponent,
-    UserAyudaComponent    
+    UserAyudaComponent,
+    AdminRegComponent,
+    PerfilComponent    
   ],
   imports: [
     BrowserModule,
