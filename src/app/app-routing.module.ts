@@ -12,6 +12,7 @@ import { AdminUsersComponent } from "./components/admin-users/admin-users.compon
 import { UserAyudaComponent } from "./components/user-ayuda/user-ayuda.component";
 import { AdminRegComponent } from "./components/admin-reg/admin-reg.component";
 import { PerfilComponent } from "./components/perfil/perfil.component";
+import { RecuperarPassComponent } from "./components/recuperar-pass/recuperar-pass.component";
 import { UsuarioGuard } from "./guards/usuario.guard";
 import { AdministradorGuard} from "./guards/administrador.guard";
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
   { 
     path: 'login', 
     component: LoginFormComponent 
+  },
+  { 
+    path: 'recuperarPass', 
+    component: RecuperarPassComponent 
   },
   { 
     path: 'registrar', 

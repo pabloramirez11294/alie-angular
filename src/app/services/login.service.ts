@@ -89,4 +89,7 @@ export class LoginService {
   actualizarUsuario(data:any){
     return this.http.put(`${this.API_URI}/register/actualizarUsuario`,data);
   }
+  recuperarPass(data:any){
+    return this.http.put(`${this.API_URI}/register/olvidoPass`,data);
+  }
 }
