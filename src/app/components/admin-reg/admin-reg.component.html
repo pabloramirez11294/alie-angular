@@ -8,7 +8,10 @@
         <p><input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="user.nombre" autofocus></p>
         <p><input type="email" name="correo" placeholder="Email" [(ngModel)]="user.correo" required ></p>
         <p><input type="password" name="clave" placeholder="Password" [(ngModel)]="user.clave" required></p>
-       
+        <p><input type="text" name="fecha_nac" [matDatepicker]="myDatepicker" style="display:inline;width: 310px;" placeholder="Fecha nacimiento" [(ngModel)]="user.fecha_nac">
+          <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #myDatepicker></mat-datepicker>
+        </p>
         <p>
           <select class="custom-select" name="genero" [(ngModel)]="user.genero">
             <option value="1">Masculino</option>

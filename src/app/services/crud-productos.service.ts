@@ -42,4 +42,23 @@ export class CrudProductosService {
   comprar(data:any){
     return this.http.put(`${this.API_URI}/productos/comprar`, data);
   }
+
+  reporte3(year:number){
+    return this.http.get(`${this.API_URI}/productos/reporte3/${year}`);
+  }
+  reporte4(){
+    return this.http.get(`${this.API_URI}/productos/reporte4`);
+  }
+  reporte6(){
+    return this.http.get(`${this.API_URI}/productos/reporte6`);
+  }
+  reporte7(){
+    return this.http.get(`${this.API_URI}/productos/reporte7`);
+  }
+  reporte8(){
+    return this.http.get(`${this.API_URI}/productos/reporte8`);
+  }
+  reporte10(cantidad:number){
+    return this.http.get(`${this.API_URI}/productos/reporte10/${cantidad}`);
+  }
 }

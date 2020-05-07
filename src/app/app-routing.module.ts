@@ -12,6 +12,7 @@ import { AdminUsersComponent } from "./components/admin-users/admin-users.compon
 import { UserAyudaComponent } from "./components/user-ayuda/user-ayuda.component";
 import { AdminRegComponent } from "./components/admin-reg/admin-reg.component";
 import { PerfilComponent } from "./components/perfil/perfil.component";
+import {ReportesComponent} from "./components/reportes/reportes.component";
 import { RecuperarPassComponent } from "./components/recuperar-pass/recuperar-pass.component";
 import { UsuarioGuard } from "./guards/usuario.guard";
 import { AdministradorGuard} from "./guards/administrador.guard";
@@ -80,7 +81,12 @@ const routes: Routes = [
     path: 'adminReg', 
     component: AdminRegComponent,
     canActivate:[AdministradorGuard]
-  }  
+  },
+  { 
+    path: 'reportes', 
+    component: ReportesComponent,
+    canActivate:[AdministradorGuard]
+  }    
   
 
 ];

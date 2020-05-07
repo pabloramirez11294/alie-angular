@@ -1,0 +1,153 @@
+<div class="col-md-5 offset-md-0 d-flex justify-content-between align-items-center">
+    <table class="table table-borderless table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">fecha nacimiento</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let prod of data3">
+            <tr>
+                <th scope="row"> {{prod[0]}}</th>
+                <td> {{prod[1]}}</td>
+                <td> {{prod[2]}}</td>
+                <td> {{prod[3]}}</td>
+            </tr>
+
+    </table>
+    &nbsp;&nbsp;
+    <input type="number" name="year" placeholder="#" required [(ngModel)]="year">
+    &nbsp;&nbsp;
+    <button class="btn" style="background-color: orange;" (click)=reporte3()>
+        Reporte3
+      </button>
+    &nbsp;&nbsp;
+</div>
+
+<div class="col-md-5 offset-md-0 d-flex justify-content-between align-items-center">
+    <table class="table table-borderless table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">ganancia</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let prod of data4">
+            <tr>
+                <th scope="row"> {{prod[0]}}</th>
+                <td> {{prod[1]}}</td>
+                <td> {{prod[2]}}</td>
+                <td> {{prod[3]}}</td>
+            </tr>
+
+    </table>
+    &nbsp;&nbsp;
+    
+    <button class="btn" style="background-color: orange;" (click)=reporte4()>
+        Reporte4
+      </button>
+    &nbsp;&nbsp;
+</div>
+
+<div class="col-md-5 offset-md-0 d-flex justify-content-between align-items-center">
+    <table class="table table-borderless table-dark">
+        <thead>
+            <tr>
+                <th scope="col">codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cantidad</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let prod of data6">
+            <tr>
+                <th scope="row"> {{prod[0]}}</th>
+                <td> {{prod[1]}}</td>
+                <td> {{prod[2]}}</td>
+            </tr>
+
+    </table>
+    &nbsp;&nbsp;
+    
+    <button class="btn" style="background-color: orange;" (click)=reporte6()>
+        Reporte6
+      </button>
+    &nbsp;&nbsp;
+</div>
+
+<div class="col-md-5 offset-md-0 d-flex justify-content-between align-items-center">
+    <table class="table table-borderless table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">cantidad</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let prod of data7">
+            <tr>
+                <th scope="row"> {{prod[0]}}</th>
+                <td> {{prod[1]}}</td>
+                <td> {{prod[2]}}</td>
+            </tr>
+
+    </table>
+    &nbsp;&nbsp;
+    
+    <button class="btn" style="background-color: orange;" (click)=reporte7()>
+        Reporte7
+      </button>
+    &nbsp;&nbsp;
+</div>
+
+<div class="col-md-5 offset-md-0 d-flex justify-content-between align-items-center">
+    <table class="table table-borderless table-dark">
+        <thead>
+            <tr>
+                <th scope="col">codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">categoria</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let prod of data8">
+            <tr>
+                <th scope="row"> {{prod[0]}}</th>
+                <td> {{prod[1]}}</td>
+                <td> {{prod[2]}}</td>
+            </tr>
+
+    </table>
+    &nbsp;&nbsp;
+    
+    <button class="btn" style="background-color: orange;" (click)=reporte8()>
+        Reporte8
+      </button>
+    &nbsp;&nbsp;
+</div>
+
+<div class="col-md-5 offset-md-0 d-flex justify-content-between align-items-center">
+    <table class="table table-borderless table-dark">
+        <thead>
+            <tr>
+                <th scope="col">codigo</th>
+                <th scope="col">Nombre</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let prod of data10">
+            <tr>
+                <th scope="row"> {{prod[0]}}</th>
+                <td> {{prod[1]}}</td>
+            </tr>
+
+    </table>
+    &nbsp;&nbsp;
+    <input type="number" name="cantidad" placeholder="#" required [(ngModel)]="cantidad">
+    &nbsp;&nbsp;
+    <button class="btn" style="background-color: orange;" (click)=reporte10()>
+        Reporte10
+      </button>
+    &nbsp;&nbsp;
+</div>

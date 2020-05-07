@@ -32,6 +32,7 @@ import { UserAyudaComponent } from './components/user-ayuda/user-ayuda.component
 import { AdminRegComponent } from './components/admin-reg/admin-reg.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { RecuperarPassComponent } from './components/recuperar-pass/recuperar-pass.component';
+import { ReportesComponent } from './components/reportes/reportes.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { RecuperarPassComponent } from './components/recuperar-pass/recuperar-pa
     UserAyudaComponent,
     AdminRegComponent,
     PerfilComponent,
-    RecuperarPassComponent    
+    RecuperarPassComponent,
+    ReportesComponent    
   ],
   imports: [
     BrowserModule,
