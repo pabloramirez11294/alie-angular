@@ -13,7 +13,7 @@ export class InicioComponent implements OnInit {
   constructor(private productosService:CrudProductosService) { }
 
   ngOnInit() {
-    this.getProductos('a')
+    this.getProductosTodos();
   }
   buscar(nombre:string){
     if(nombre==undefined)
@@ -33,5 +33,16 @@ export class InicioComponent implements OnInit {
       }
     );
   }
-
+  private getProductosTodos(){
+    this.productosService.buscarTodos().subscribe(
+      res=>{
+        console.log(res);
+        this.datos=res;
+      },
+      err=>{
+        console.log(err);
+        alert(err.message);
+      }
+    );
+  }
 }
